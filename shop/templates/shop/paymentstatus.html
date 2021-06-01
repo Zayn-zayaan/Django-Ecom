@@ -1,0 +1,25 @@
+{% extends 'shop/basic.html' %}
+{% block title%} My Awesome Cart Tracker{% endblock %}
+{% block body %}
+{% load shop_tags %}
+<div class="container">
+    <!-- {{response}} -->
+    <div class="col my-4">
+
+        <h2>Payment status regarding your order service no. {{response.ORDERID}}</h2>
+        {% if response.RESPCODE == '01' %}
+        <b>ORDER SUCCESS</b> <br />
+        <h4>you can track your order with above order id {{ response.ORDERID|split:"-" }}, copy and save it somewhere.</h4>
+        {% else %}
+        ORDER FAILURE
+        <h4>Order is not placed technical error occured make sure you enter correct info and try again. </h4>
+        {% endif%}
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}
